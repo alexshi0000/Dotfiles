@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=`xinput --set-prop "12" "Device Accel Constant Deceleration" 0.75`
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_CA]=track1
+Name=track1
+Comment[en_CA]=
+Comment=

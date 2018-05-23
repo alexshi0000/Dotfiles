@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=./enable_multi_touch.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_CA]=touch5
+Name=touch5
+Comment[en_CA]=
+Comment=

@@ -1,0 +1,126 @@
+{
+   "checksum": "d529d879cebf2f429537957d1435372c",
+   "roots": {
+      "bookmark_bar": {
+         "children": [  ],
+         "date_added": "13159039004360225",
+         "date_modified": "0",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [ {
+            "date_added": "13077424103773696",
+            "id": "5",
+            "meta_info": {
+               "stars.flags": "0",
+               "stars.id": "c_gli5iaadqcy2",
+               "stars.imageData": "Ej0KNmh0dHA6Ly93d3cucnViaWtzcGxhY2UuY29tL2ltYWdlcy9ydWJpa3NwbGFjZS1sb2dvLnBuZxCdBBh3GgA=",
+               "stars.note": "",
+               "stars.pageData": "EmFIT1cgVE8gU09MVkUgQSBSVUJJSydTIENVQkVSVUJJSydTIENVQkUgVElQU1NQRUVEQ1VCSU5HMlgyIFJVQklLJ1MgQ1VCRTRYNCBSVUJJSydTIENVQkVDT09MIFNUVUZG",
+               "stars.type": "2",
+               "stars.version": "crx.2.2015.522.11440"
+            },
+            "name": "PLL Algorithms - CFOP speedsolving PLL best algs.",
+            "sync_transaction_version": "1",
+            "type": "url",
+            "url": "http://www.rubiksplace.com/speedcubing/PLL-algorithms/"
+         }, {
+            "date_added": "13078181999434249",
+            "id": "6",
+            "meta_info": {
+               "stars.flags": "0",
+               "stars.id": "c_4p7diamwyoz4",
+               "stars.note": "",
+               "stars.pageData": "",
+               "stars.type": "2",
+               "stars.version": "crx.2.2015.522.11440"
+            },
+            "name": "view-source:https://www.youtube.com/watch?v=oH6qPi3cRTg",
+            "sync_transaction_version": "1",
+            "type": "url",
+            "url": "view-source:https://www.youtube.com/watch?v=oH6qPi3cRTg"
+         }, {
+            "date_added": "13103414290848140",
+            "id": "7",
+            "name": "Converting a String with spaces to an Integer in java - Stack Overflow",
+            "sync_transaction_version": "1",
+            "type": "url",
+            "url": "http://stackoverflow.com/questions/23851668/converting-a-string-with-spaces-to-an-integer-in-java"
+         }, {
+            "date_added": "13103775851528057",
+            "id": "8",
+            "name": "How to initialize an ArrayList",
+            "sync_transaction_version": "1",
+            "type": "url",
+            "url": "http://beginnersbook.com/2013/12/how-to-initialize-an-arraylist/"
+         }, {
+            "children": [ {
+               "date_added": "13110602447339006",
+               "id": "10",
+               "name": "java networking",
+               "sync_transaction_version": "1",
+               "type": "url",
+               "url": "http://www.javaworld.com/article/2077322/core-java/core-java-sockets-programming-in-java-a-tutorial.html"
+            }, {
+               "date_added": "13119736008558156",
+               "id": "11",
+               "name": "How to run Road Rash on Windows 7, Windows 8 or Windows 10 — GoPlayThat",
+               "sync_transaction_version": "1",
+               "type": "url",
+               "url": "http://www.goplaythat.com/article/how-to-run-road-rash"
+            }, {
+               "date_added": "13120453883797878",
+               "id": "12",
+               "name": "The StringBuilder Class (The Java™ Tutorials > Learning the Java Language > Numbers and Strings)",
+               "sync_transaction_version": "1",
+               "type": "url",
+               "url": "https://docs.oracle.com/javase/tutorial/java/data/buffers.html"
+            }, {
+               "date_added": "13123315034474809",
+               "id": "13",
+               "name": "Course Notes Unit 1 Fundamentals",
+               "sync_transaction_version": "1",
+               "type": "url",
+               "url": "http://abelmoodle.abel.yorku.ca/moodle/pluginfile.php/357923/mod_resource/content/33/Course%20Notes%20Unit%201%20Fundamentals.pdf"
+            }, {
+               "date_added": "13124844001035057",
+               "id": "14",
+               "name": "Java Programming - 21 - Beginning Graphics in Java - YouTube",
+               "sync_transaction_version": "1",
+               "type": "url",
+               "url": "https://www.youtube.com/watch?v=llMIT6No7N8"
+            }, {
+               "date_added": "13140494838584195",
+               "id": "15",
+               "name": "Autodesk SketchBook Pro 2014 Multilingual 32bits + Crack (download torrent) - TPB",
+               "sync_transaction_version": "1",
+               "type": "url",
+               "url": "https://thepiratebay.org/torrent/8525392/Autodesk_SketchBook_Pro_2014_Multilingual_32bits___Crack"
+            } ],
+            "date_added": "13159039035631639",
+            "date_modified": "13159039035631641",
+            "id": "9",
+            "name": "java",
+            "sync_transaction_version": "1",
+            "type": "folder"
+         } ],
+         "date_added": "13159039004360235",
+         "date_modified": "13103775851528057",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "sync_transaction_version": "1",
+      "synced": {
+         "children": [  ],
+         "date_added": "13159039004360238",
+         "date_modified": "0",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

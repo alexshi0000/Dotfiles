@@ -1,0 +1,19 @@
+2018/04/02-10:55:08.223 7890 Reusing MANIFEST /home/lx_user/.config/chromium/Default/Local Extension Settings/gighmmpiobklfepjocnamgkkbiglidom/MANIFEST-000001
+2018/04/02-10:55:08.223 7890 Recovering log #465
+2018/04/02-10:55:08.251 7890 Level-0 table #468: started
+2018/04/02-10:55:08.323 7890 Level-0 table #468: 3257261 bytes OK
+2018/04/02-10:55:08.328 7890 Delete type=0 #465
+2018/04/02-10:55:08.330 8079 Compacting 4@0 + 2@1 files
+2018/04/02-10:55:08.474 8079 Generated table #470@0: 1 keys, 3257261 bytes
+2018/04/02-10:55:08.482 8079 Generated table #471@0: 5 keys, 462 bytes
+2018/04/02-10:55:08.482 8079 Compacted 4@0 + 2@1 files => 3257723 bytes
+2018/04/02-10:55:08.494 8079 compacted to: files[ 0 2 1 0 0 0 0 ]
+2018/04/02-10:56:10.053 8079 Level-0 table #473: started
+2018/04/02-10:56:10.138 8079 Level-0 table #473: 3257329 bytes OK
+2018/04/02-10:56:10.140 8079 Delete type=2 #457
+2018/04/02-10:56:10.140 8079 Delete type=2 #464
+2018/04/02-10:56:10.141 8079 Delete type=2 #468
+2018/04/02-10:56:10.142 8079 Delete type=2 #466
+2018/04/02-10:56:10.143 8079 Delete type=2 #458
+2018/04/02-10:56:10.143 8079 Delete type=0 #469
+2018/04/02-10:56:10.145 8079 Delete type=2 #460

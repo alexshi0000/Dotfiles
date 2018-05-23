@@ -1,0 +1,36 @@
+background no
+own_window yes
+own_window_type normal
+own_window_class Conky
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_type override
+double_buffer no
+alignment mm
+gap_x -595
+#575
+gap_y -15
+#310
+use_xft yes
+xftfont Source Sans Pro:size=18
+xftalpha 0.1
+update_interval 10.0
+uppercase yes
+double_buffer yes
+own_window_argb_visual yes
+own_window_argb_value 0
+draw_shades no
+default_shade_color 000000
+default_color ffffff
+color1 2d2d2d
+#2d2d2d
+#4A2B45
+#382536
+#3F2E2F
+#000000
+
+font PoiretOne-Regular:size=32
+#${alignr}${time %H} : ${time %M} : ${time %S}
+
+TEXT
+${alignr}${time %H} : ${time %M}
+

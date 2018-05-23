@@ -1,0 +1,35 @@
+background no
+own_window yes
+own_window_type normal
+own_window_class Conky
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_type override
+double_buffer yes
+alignment mm
+gap_x -595
+#575
+gap_y -50
+#310
+use_xft yes
+xftfont Roboto Mono Thin:size=19
+xftalpha 0.1
+update_interval 5.0
+uppercase yes
+double_buffer yes
+own_window_argb_visual yes
+own_window_argb_value 0
+draw_shades yes
+default_shade_color 000000
+default_color 9f9f9f
+color1 dfdfdf
+#2d2d2d
+#4A2B45
+#382536
+#3F2E2F
+#000000
+
+
+TEXT
+
+${color1}${time %A}, $alignr${time %B} ${time %e}
+${color1}Battery$alignr${color1}${battery_percent BAT0}%

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=`xinput --set-prop --type=int --format=8  "SynPS/2 Synaptics TouchPad" "Synaptics Two-Finger Scrolling" 1 0`
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_CA]=touch3
+Name=touch3
+Comment[en_CA]=
+Comment=

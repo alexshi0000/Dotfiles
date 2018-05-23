@@ -1,0 +1,20 @@
+2018/04/02-10:53:52.458 7590 Reusing MANIFEST /home/lx_user/.config/chromium/Default/Local Extension Settings/cfhdojbkjhnklbpkdaibdccddilifddb/MANIFEST-000001
+2018/04/02-10:53:52.459 7590 Recovering log #455
+2018/04/02-10:53:52.459 7590 Reusing old log /home/lx_user/.config/chromium/Default/Local Extension Settings/cfhdojbkjhnklbpkdaibdccddilifddb/000455.log 
+2018/04/02-10:54:53.157 7843 Level-0 table #458: started
+2018/04/02-10:54:53.203 7843 Level-0 table #458: 3204532 bytes OK
+2018/04/02-10:54:53.204 7843 Delete type=0 #455
+2018/04/02-10:54:53.206 7843 Compacting 4@0 + 2@1 files
+2018/04/02-10:54:53.264 7843 Generated table #459@0: 1 keys, 3204455 bytes
+2018/04/02-10:54:53.268 7843 Generated table #460@0: 3 keys, 1265 bytes
+2018/04/02-10:54:53.268 7843 Compacted 4@0 + 2@1 files => 3205720 bytes
+2018/04/02-10:54:53.270 7843 compacted to: files[ 0 2 1 0 0 0 0 ]
+2018/04/02-10:54:53.270 7843 Delete type=2 #452
+2018/04/02-10:54:53.271 7843 Delete type=2 #454
+2018/04/02-10:54:53.271 7843 Delete type=2 #449
+2018/04/02-10:54:53.272 7843 Delete type=2 #446
+2018/04/02-10:54:53.272 7843 Delete type=2 #447
+2018/04/02-10:54:53.273 7843 Delete type=2 #458
+2018/04/02-10:54:56.536 7843 Level-0 table #462: started
+2018/04/02-10:54:56.616 7843 Level-0 table #462: 3205669 bytes OK
+2018/04/02-10:54:56.618 7843 Delete type=0 #457
