@@ -5,97 +5,89 @@
 # this file and re-run i3-config-wizard(1).
 #
 
-# this is a chain of tools that need root priviledges, 
+# this is a chain of tools that need root priviledges,
 # just run gksu from beginning
 
 # exec ./gksuscripts.sh move this to rclocal, or simply don't use, not sure
 
 # i want my color temperature to be slightly on the cool side, thats just how i read things
-exec redshift -x
+  exec redshift -x
 
-exec nm-applet
+# here is the palm detection since i do alot of typing and trackpoint
+  exec xinput set-prop 11 "Synaptics Palm Detection" 1
+# exec xinput set-prop 11 "Synaptics Palm Dimensions" 5, 5
 
+# turning off the touchpad
+  bindsym F7 exec xinput set-prop 11 "Device Enabled" 0
+  bindsym F6 exec xinput set-prop 11 "Device Enabled" 1
+
+# by default turn off the god damn trackpad
+  exec xinput set-prop 11 "Device Enabled" 0
+
+# exec nm-applet
 # pavu
 # exec pavucontrol
   exec --no-startup-id i3-msg 'exec /usr/bin/pulseaudio --start'
 
 # lets setup the polybar
-
-bindsym $mod+p exec ~/.config/polybar/launch.sh
-bindsym $mod+Shift+p exec pkill polybar
-
-# lets make sure the power management on my network card is shut off for good
-# exec ./wallpaper.sh && gksu iwconfig wlp3s0 power off
+# bindsym $mod+p exec ~/.config/polybar/launch.sh
+# bindsym $mod+Shift+p exec pkill polybar
 
 # turn off the goddam bluetooth thats using fucking batts like hells mans
-exec rfkill block bluetooth
-
-# lets go conky!!!!!!!!!!!!!!!
-exec conky -q -c /home/lx_user/.minimalrc
-exec conky -q -c /home/lx_user/.clockrc
+  exec rfkill block bluetooth
 
 # trackpoint settings (doesn't work here, moved to .rclocal)
-# exec echo 195 | sudo tee /sys/devices/platform/i8042/serio1/serio2/sensitivity
-# exec echo 100 | sudo tee /sys/devices/platform/i8042/serio1/serio2/speed
-exec xinput --set-prop "12" "Device Accel Constant Deceleration" 0.5
+  exec xinput --set-prop "12" "Device Accel Constant Deceleration" 0.5
 
 # set a system binding for poweroff
-bindsym $mod+Shift+s exec shutdown now
+  bindsym $mod+Shift+s exec shutdown now
 
 # sound and multimedia keys
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
-
-# TOUCHPAD CONTROL
-# bindsym XF86TouchpadToggle exec toggletouchpad.sh
+  bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
+  bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #decrease sound volume
+  bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
 
 # scrot?
 # scrot & gimp - root
-bindsym Print exec scrot -e 'mv $f ~/Pictures/screenshots/ #&& gimp ~/Pictures/screenshots/$f'
+  bindsym Print exec scrot -e 'mv $f ~/Pictures/screenshots/ #&& gimp ~/Pictures/screenshots/$f'
+
 # scrot & gimp - select window or rectangle
-bindsym Mod1+Print exec scrot -s -e 'mv $f ~/Pictures/screenshots/ #&& gimp ~/Pictures/screenshots/$f' 
-
-#turn off the trackpad
-#exec xinput set-prop 11 "Device Enabled" 0
-
-#POLYBAR!!!!!!!!!!!!!!!
-#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+  bindsym Mod1+Print exec scrot -s -e 'mv $f ~/Pictures/screenshots/ #&& gimp ~/Pictures/screenshots/$f' 
 
 # i3lock
-bindsym $mod+l exec ./i3lock-color/lock.sh
+  bindsym $mod+t exec ./i3lock-color/lock.sh
 
 #FUCK YOU
-bindsym $mod+u exec mpg123 FUCK\ YOU!\ Sound\ Effect.mp3
+#bindsym $mod+u exec mpg123 FUCK\ YOU!\ Sound\ Effect.mp3
 
-#nice keyboard
-exec ./keyboard.sh
+#nice keyboard (this is the script that i use to speed up the cursor and keyboard repeat)
+  exec ./keyboard.sh
 
-#gaps
-# Disable window titlebars entirely
-for_window [class="^.*"] border pixel 0
-
+# Gaps
 # Set inner/outer gaps
-gaps inner 8
-gaps outer 5
+  gaps inner 7
+  gaps outer 1
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
-# gaps inner|outer current|all set|plus|minus <px>
+# gaps inner outer current|all set|plus|minus <px>
 # gaps inner all set 5
 # gaps outer all plus 10
+
+  bindsym $mod+g gaps inner current set 30
+  bindsym $mod+Shift+g gaps inner current set 7
 
 # Smart gaps (gaps used if only more than one container on the workspace)
 # smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
- smart_borders on
+# smart_borders on
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
+  set $mode_gaps Gaps: (o) outer, (i) inner
+  set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+  set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+# bindsym $mod+Shift+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"
@@ -132,41 +124,41 @@ mode "$mode_gaps_outer" {
 #end gaps
 
 #naut
-exec gsettings set org.gnome.desktop.background show-desktop-icons false
+  exec gsettings set org.gnome.desktop.background show-desktop-icons false
+
 #get rid of hideous border
-for_window [class="^.*"] border pixel 0
+  for_window [class="^.*"] border pixel 0
 
 #keyboard repeat
-#exec  xset r rate 200 50 
+#exec  xset r rate 200 50
 
-#mutli_touch
-exec ./enable_multi_touch.sh
+# mutli_touch
+  exec ./enable_multi_touch.sh
+
 # I set natural scrolling here
-exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
+  exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
 
-#font
-font pango: System San Francisco Display Regular 8.25
+# compton
+  exec compton
 
-#compton
-exec compton
-
-# WALLPAPEPRPEREPRPERE                                                               wallpaper
+# WALLPAPERRRRRR
 # exec ./wallpaper.sh
-  exec ./.config/dynamic_wallpaper.sh
+# exec ./.config/dynamic_wallpaper.sh
 # exec python3 dynamic_wallpaper.py
+  exec feh --bg-fill ~/Pictures/polymount.jpg
 
-#audio
+# audio
 # Pulse Audio controls
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+  bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+  bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+  set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -174,7 +166,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+# font pango:DejaVu Sans Mono 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -184,17 +176,21 @@ set $mod Mod4
 # font, it doesn’t scale on retina/hidpi displays.
 
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+  floating_modifier $mod
 
 # start a terminal
-bindsym $mod+t exec i3-sensible-terminal
+  bindsym $mod+Return exec urxvt                #dark terminal
+  bindsym $mod+Shift+Return exec gnome-terminal #light terminal
+
+# start urxvt
+#bindsym $mod+Return exec urxvt
 
 # kill focused window
-bindsym $mod+Shift+q kill
+  bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run -p "command:" -nb "#0a0c21" -nf "#7f8c8d" -sb "#0a0c21" -sf "#bdc3c7"
-  bindsym $mod+d exec rofi -show run -config ~/.config/roficonf
+  bindsym $mod+d exec rofi -show drun -config ~/.config/roficonf
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -202,85 +198,108 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-# bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+  bindsym $mod+j focus left
+  bindsym $mod+k focus down
+  bindsym $mod+l focus up
+  bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+  bindsym $mod+Left focus left
+  bindsym $mod+Down focus down
+  bindsym $mod+Up focus up
+  bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+  bindsym $mod+Shift+j move left
+  bindsym $mod+Shift+k move down
+  bindsym $mod+Shift+l move up
+  bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+  bindsym $mod+Shift+Left move left
+  bindsym $mod+Shift+Down move down
+  bindsym $mod+Shift+Up move up
+  bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+  bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+  bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+  bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+  bindsym $mod+s layout stacking
+  bindsym $mod+w layout tabbed
+  bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+  bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+  bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+  bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
+# focus the child container (replaced by dmenu)
+  #bindsym $mod+d focus child
+
+# Workspace names
+  set $ws1 "1"
+  set $ws2 "2"
+  set $ws3 "3"
+  set $ws4 "4"
+  set $ws5 "5"
+  set $ws6 "6"
+  set $ws7 "7"
+  set $ws8 "8"
+  set $ws9 "9"
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+  bindsym $mod+1 workspace $ws1
+  bindsym $mod+2 workspace $ws2
+  bindsym $mod+3 workspace $ws3
+  bindsym $mod+4 workspace $ws4
+  bindsym $mod+5 workspace $ws5
+  bindsym $mod+6 workspace $ws6
+  bindsym $mod+7 workspace $ws7
+  bindsym $mod+8 workspace $ws8
+  bindsym $mod+9 workspace $ws9
 
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+# Move focused container to workspace
+  bindsym $mod+Ctrl+1 move container to workspace $ws1
+  bindsym $mod+Ctrl+2 move container to workspace $ws2
+  bindsym $mod+Ctrl+3 move container to workspace $ws3
+  bindsym $mod+Ctrl+4 move container to workspace $ws4
+  bindsym $mod+Ctrl+5 move container to workspace $ws5
+  bindsym $mod+Ctrl+6 move container to workspace $ws6
+  bindsym $mod+Ctrl+7 move container to workspace $ws7
+  bindsym $mod+Ctrl+8 move container to workspace $ws8
+  bindsym $mod+Ctrl+9 move container to workspace $ws9
+
+# Move to workspace with focused container
+  bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+  bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+  bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+  bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+  bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
+  bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+  bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
+  bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+  bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+  bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+  bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec i3-msg exit
+  bindsym $mod+Shift+e exec i3-msg exit
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -289,34 +308,56 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 2 px or 2 ppt
-        bindsym k resize grow height 2 px or 2 ppt
-        bindsym l resize shrink height 2 px or 2 ppt
-        bindsym semicolon resize grow width 2 px or 2 ppt
+        bindsym j resize shrink width       10 px or 10 ppt
+        bindsym k resize grow height        10 px or 10 ppt
+        bindsym l resize shrink height      10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 2 px or 2 ppt
-        bindsym Down resize grow height 2 px or 2 ppt
-        bindsym Up resize shrink height 2 px or 2 ppt
-        bindsym Right resize grow width 2 px or 2 ppt
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height  10 px or 10 ppt
+        bindsym Up resize shrink height  10 px or 10 ppt
+        bindsym Right resize grow width  10 px or 10 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#       status_command i3status
-#       position top
-#}
+# resize
+  bindsym $mod+r mode "resize"
 
 # lock start
-exec .config/i3lock_script.sh
+  exec .config/i3lock_script.sh
+
+# lets go conky!!!!!!!!!!!!!!!
+# exec conky -q -c /home/lx_user/.minimalrc
+# exec conky -q -c /home/lx_user/.clockrc
 
 # bucklespring sounds
-bindsym $mod+b exec ~/buckle.sh
-bindsym $mod+Shift+b exec pkill buckle
+# bindsym $mod+b exec ~/buckle.sh
+# bindsym $mod+Shift+b exec pkill buckle
+
+#font
+  font pango: Terminus Regular 10.5
+
+# here is going to be my status bar
+bar {
+    #mode hide
+    #hidden_state hide
+    #modifier Mod1
+
+    status_command i3status
+    position top
+    i3bar_command i3bar -t
+    colors {
+           background #18181878
+           statusline #eeeeeeD8
+           separator  #eeeeee78
+                              #border  backgr. text
+           focused_workspace  #4c789978 #28557778 #ffffffff
+           active_workspace   #33333378 #5f676a78 #ffffffff
+           inactive_workspace #33333378 #44444478 #ffffff99
+           urgent_workspace   #2f343a78 #90000078 #ffffffff
+        }
+}
