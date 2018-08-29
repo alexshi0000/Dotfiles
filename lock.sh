@@ -14,7 +14,7 @@ ORANGE='#FFB86C'
 GREEN='#50FA7B'
 BLACK='00000000'
 
-./x86_64-pc-linux-gnu/i3lock \
+i3lock \
 --insidevercolor=$B   \
 --ringvercolor=$B     \
 \
