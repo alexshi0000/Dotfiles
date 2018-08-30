@@ -77,12 +77,12 @@ URxvt.iso14755: False
 
 !Terminus
 URxvt.font: xft:Terminus:pixelsize=16,\
-			xft:DejaVu Sans Mono:Book:antialias=false:hinting=false:size=10,\
-			xft:Inconsolata\ for\ Powerline:mono:medium:pixelsize=16,\
-			xft:Symbola:pixelsize=16,\
-			xft:unifont
+            xft:DejaVu Sans Mono:Book:antialias=false:hinting=false:pixelsize=16,\
+            xft:Inconsolata\ for\ Powerline:mono:medium:pixelsize=16,\
+            xft:Symbola:pixelsize=16,\
+            xft:unifont
 
-URxvt.lineSpace: -1
+URxvt.lineSpace: 0
 URxvt.letterSpace: 0
 
 URxvt.keysym.C-Up:     font-size:increase
@@ -98,12 +98,12 @@ URxvt.internalBorder: 1
 
 ! Tango theme
 
-URxvt.background: #16191C
+URxvt.background: #16191F
 URxvt.foreground: #BCBEC4
 
 ! black
-URxvt.color0  : #16191C
-URxvt.color8  : #585F6B
+URxvt.color0  : #16191F
+URxvt.color8  : #585F71
 ! red
 URxvt.color1  : #CC6666
 URxvt.color9  : #CC6666
@@ -124,7 +124,7 @@ URxvt.color6  : #8ABEB7
 URxvt.color14 : #8ABEB7
 ! white
 URxvt.color7  : #BCBEC4
-URxvt.color15 : #21252B
+URxvt.color15 : #212530
 
 ! XTerm
 
@@ -154,8 +154,8 @@ XTerm*metaSendsEscape: true
 
 ! Copy and paste with clipboard
 XTerm*translations: #override \
-	Ctrl Shift <KeyPress> C: copy-selection(CLIPBOARD) \n\
-	Ctrl Shift <KeyPress> V: insert-selection(CLIPBOARD)
+    Ctrl Shift <KeyPress> C: copy-selection(CLIPBOARD) \n\
+    Ctrl Shift <KeyPress> V: insert-selection(CLIPBOARD)
 
 ! Allow selecting email/url by double-click
 XTerm*charClass: 33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35:48
