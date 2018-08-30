@@ -2,28 +2,36 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/lx_user/.oh-my-zsh
-
-# MY ALIASES
-  alias run="./run.sh"  
-  alias netbeans="./netbeans.sh"
+  export ZSH=$HOME/.oh-my-zsh
+# export FZF_DEFAULT_OPTS='--color fg:4,bg:0,hl:2,fg+:15,bg+:0,hl+:1,info:5,prompt:4,spinner:0,pointer:1,marker:0'
+# MY ALIASES, i wanted some flags to always be there
+# alias fzf="fzf --preview 'head -100 {}'"
+  alias make="make -B"
+# alias neofetch="neofetch --w3m ~/Pictures/octoo.svg"
+  alias run="./run.sh"
+  alias netbeans="./netbeans.sh" # this is a hack lol add to $PATH sometime
   alias haskell="/opt/ghc/bin/ghc-8.0.2"
   alias gcc="gcc -pipe"
   alias g++="g++ -pipe"
   alias octave="octave --no-gui"
   alias emacs="emacs -nw"
-
+  alias rm="rm -i" #safer removals
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#  ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
 # ZSH_THEME="powerlevel9k/powerlevel9k"
 # ZSH_THEME="pure-prompt"
 # ZSH_THEME="bullet-train"
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="geometry/geometry"
 # ZSH_THEME="node"
-  ZSH_THEME="spaceship-prompt/spaceship"
+
+
+ZSH_THEME="spaceship-prompt/spaceship"
+  SPACESHIP_PACKAGE_SYMBOL=⚑
+# SPACESHIP_CHAR_SYMBOL='→ '
+
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
@@ -107,3 +115,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export PATH=/home/lx_user/bin:/home/lx_user/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/lx_user/.vimpkg/bin
+
+
+export NVM_DIR="/home/lx_user/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
