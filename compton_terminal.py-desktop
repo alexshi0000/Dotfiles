@@ -1,0 +1,16 @@
+import subprocess
+import random
+
+hashes = ['a', 'b', 'c', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'x', 'y', 'z']
+
+def generate_unique_class(level):
+    unique_class = ''
+    for i in range(0, level):
+        unique_class += hashes[random.randint(0,14)]
+    return unique_class
+
+key = generate_unique_class(12);
+print("new terminal with class " + key + " created.")
+class_call = "--class="+key
+
+subprocess.call(["gnome-terminal", class_call, "--name=iterm2"])
