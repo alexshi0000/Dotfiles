@@ -5,25 +5,6 @@
 # this file and re-run i3-config-wizard(1).
 #
 
-# this is a chain of tools that need root priviledges,
-# just run gksu from beginning
-
-# exec ./gksuscripts.sh move this to rclocal, or simply don't use, not sure
-
-# i want my color temperature to be slightly on the cool side, thats just how i read things
-  exec redshift -x
-
-# here is the palm detection since i do alot of typing and trackpoint
-  exec xinput set-prop 11 "Synaptics Palm Detection" 1
-# exec xinput set-prop 11 "Synaptics Palm Dimensions" 5, 5
-
-# turning off the touchpad
-  bindsym F7 exec xinput set-prop 11 "Device Enabled" 0
-  bindsym F6 exec xinput set-prop 11 "Device Enabled" 1
-
-# by default turn off the god damn trackpad
-  exec xinput set-prop 11 "Device Enabled" 0
-
 # exec nm-applet
 # pavu
 # exec pavucontrol
@@ -32,40 +13,27 @@
 # lets setup the polybar
 # bindsym $mod+p exec ~/.config/polybar/launch.sh
 # bindsym $mod+Shift+p exec pkill polybar
-
-# turn off the goddam bluetooth thats using fucking batts like hells mans
-  exec rfkill block bluetooth
-
 # trackpoint settings (doesn't work here, moved to .rclocal)
   exec xinput --set-prop "12" "Device Accel Constant Deceleration" 0.5
 
 # set a system binding for poweroff
   bindsym $mod+Shift+s exec shutdown now
 
-# sound and multimedia keys
-  bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
-  bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #decrease sound volume
-  bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
-
-# scrot?
 # scrot & gimp - root
   bindsym Print exec scrot -e 'mv $f ~/Pictures/screenshots/ #&& gimp ~/Pictures/screenshots/$f'
 
 # scrot & gimp - select window or rectangle
-  bindsym Mod1+Print exec scrot -s -e 'mv $f ~/Pictures/screenshots/ #&& gimp ~/Pictures/screenshots/$f' 
+  bindsym Mod1+Print exec scrot -s -e 'mv $f ~/Pictures/screenshots/ #&& gimp ~/Pictures/screenshots/$f'
 
 # i3lock
   bindsym $mod+t exec ./i3lock-color/lock.sh
-
-#FUCK YOU
-#bindsym $mod+u exec mpg123 FUCK\ YOU!\ Sound\ Effect.mp3
 
 #nice keyboard (this is the script that i use to speed up the cursor and keyboard repeat)
   exec ./keyboard.sh
 
 # Gaps
 # Set inner/outer gaps
-  gaps inner 7
+  gaps inner 8
   gaps outer 1
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
@@ -73,8 +41,8 @@
 # gaps inner all set 5
 # gaps outer all plus 10
 
-  bindsym $mod+g gaps inner current set 30
-  bindsym $mod+Shift+g gaps inner current set 7
+  bindsym $mod+g gaps inner current set 50
+  bindsym $mod+Shift+g gaps inner current set 8
 
 # Smart gaps (gaps used if only more than one container on the workspace)
 # smart_gaps on
@@ -128,31 +96,21 @@ mode "$mode_gaps_outer" {
 
 #get rid of hideous border
   for_window [class="^.*"] border pixel 0
-
-#keyboard repeat
-#exec  xset r rate 200 50
-
-# mutli_touch
-  exec ./enable_multi_touch.sh
+  # class                 border  backgr. text    indicator child_border
+  client.focused          #00000000 #00000000 #00000000 #00000000   #00000000
+  client.focused_inactive #00000000 #00000000 #00000000 #00000000   #00000000
+  client.unfocused        #00000000 #00000000 #00000000 #00000000   #00000000
+  client.urgent           #00000000 #00000000 #00000000 #00000000   #00000000
+  client.placeholder      #00000000 #00000000 #00000000 #00000000   #00000000
 
 # I set natural scrolling here
   exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
 
 # compton
-  exec compton
+  exec compton --config ~/.config/compton.conf
 
 # WALLPAPERRRRRR
-# exec ./wallpaper.sh
-# exec ./.config/dynamic_wallpaper.sh
-# exec python3 dynamic_wallpaper.py
-  exec feh --bg-fill ~/Pictures/polymount.jpg
-
-# audio
-# Pulse Audio controls
-
-# Sreen brightness controls
-  bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-  bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+  exec feh --bg-fill ~/Pictures/darkmount.jpg
 
 # i3 config file (v4)
 #
@@ -179,11 +137,7 @@ mode "$mode_gaps_outer" {
   floating_modifier $mod
 
 # start a terminal
-  bindsym $mod+Return exec urxvt                #dark terminal
-  bindsym $mod+Shift+Return exec gnome-terminal #light terminal
-
-# start urxvt
-#bindsym $mod+Return exec urxvt
+  bindsym $mod+Return exec python3 compton_terminal.py # hahaha jokes are funny as hell
 
 # kill focused window
   bindsym $mod+Shift+q kill
@@ -327,17 +281,6 @@ mode "resize" {
 # resize
   bindsym $mod+r mode "resize"
 
-# lock start
-  exec .config/i3lock_script.sh
-
-# lets go conky!!!!!!!!!!!!!!!
-# exec conky -q -c /home/lx_user/.minimalrc
-# exec conky -q -c /home/lx_user/.clockrc
-
-# bucklespring sounds
-# bindsym $mod+b exec ~/buckle.sh
-# bindsym $mod+Shift+b exec pkill buckle
-
 #font
   font pango: Terminus Regular 10.5
 
@@ -351,13 +294,13 @@ bar {
     position top
     i3bar_command i3bar -t
     colors {
-           background #18181878
-           statusline #eeeeeeD8
-           separator  #eeeeee78
+           background #18181800
+           statusline #000000FF
+           separator  #000000FF
                               #border  backgr. text
-           focused_workspace  #4c789978 #28557778 #ffffffff
-           active_workspace   #33333378 #5f676a78 #ffffffff
-           inactive_workspace #33333378 #44444478 #ffffff99
-           urgent_workspace   #2f343a78 #90000078 #ffffffff
+           focused_workspace  #00000000 #000000ff #ffffffff
+           active_workspace   #5f676a00 #5f676a00 #000000ff
+           inactive_workspace #44444400 #44444400 #000000ff
+           urgent_workspace   #90000000 #90000000 #000000ff
         }
 }
